@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-tasks"></i> To-Do List</h1>
+            <p>Organize your tasks efficiently</p>
+        </header>
+        
+        <form id="todo-form" class="todo-form">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="todo-input" 
+                    placeholder="What needs to be done?" 
+                    required
+                    maxlength="100"
+                >
+                <button type="submit" class="add-btn">
+                    <i class="fas fa-plus"></i> Add Task
+                </button>
+            </div>
+        </form>
+
+        <div class="todo-stats">
+            <span id="task-count">0 tasks</span>
+            <button id="clear-completed" class="clear-btn">
+                <i class="fas fa-trash"></i> Clear Completed
+            </button>
+        </div>
+
+        <div class="todo-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <ul id="todo-list" class="todo-list">
+        </ul>
+
+        <div id="empty-state" class="empty-state">
+            <i class="fas fa-clipboard-list"></i>
+            <p>No tasks yet. Add your first task above!</p>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Task</h3>
+                <button class="close-btn" id="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="edit-form">
+                <input 
+                    type="text" 
+                    id="edit-input" 
+                    placeholder="Edit task..." 
+                    required
+                    maxlength="100"
+                >
+                <div class="modal-actions">
+                    <button type="button" class="cancel-btn" id="cancel-edit">Cancel</button>
+                    <button type="submit" class="save-btn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
